@@ -4,15 +4,25 @@ function sideBar() {
 
     let html = "";
 
-    html += '<h1>Zanes Fitness Guide</h1>';
-    html
+    html += '<h1 style="margin-bottom: 0;">Zanes Fitness Guide</h1>';
 
-    html += getHeadings()
+    html += `<div style="padding: 10px; padding-top: 0;">`
+
+    html += `<h2 style='text-align: center; text-decoration: underline'>Contents</h2>`
+
+    // Adding the headings to the side bar to make it an effective page index.
+    // ADD LINKS LATER
+    html += getHeadings();
+
+    html += getLinksToOtherPages();
+
+    html += `</div>`
 
     sideBar.innerHTML = html;
     
 }
 
+function getHeadings() {
 /*
     This function will get a list of objects that have the headings in them. The list obj's are
     pretty comprenhsive so we index the innerText and return that to make the sideBars navigation
@@ -20,7 +30,6 @@ function sideBar() {
        args: None
     reuturn: HTML that will be used to make the naviagtion part of side bar
 */
-function getHeadings() {
     
     let headings = document.getElementsByName("heading");
 
@@ -33,23 +42,50 @@ function getHeadings() {
     let html = "";
 
     let currentHeading = "";
-    let text = "";
-    let tag = "";
+    let headingText = "";
+    let headingTag = "";
 
     for (let i = 0; i < headings.length; i++) {
 
         currentHeading = headings[i]
 
-        text = currentHeading.innerText;
-        tag = currentHeading.localName;
+        headingText = currentHeading.innerText;
+        headingTag = currentHeading.localName;
 
+        /*
+        // the h1 is reserved for the title of the welcome message
         if (currentHeading.localName == 'h1')
             continue;
+        */
 
-        html += '<' + tag + ' class="sideBarHeading">'
-                + '-' + text
-                + '</' + tag + '>';
+        html 
+        += '<' + headingTag + ' class="sideBarHeading">'
+        + '-' + headingText
+        + '</' + headingTag + '>';
     }
 
     return html;
+}
+
+function getLinksToOtherPages() {
+
+    links = {
+        'Pull': 'pull.html', 
+        'Push': 'push.html', 
+        'Legs': 'legs.html', 
+        'Diet': 'diet.html'
+    }
+
+    console.log(links[0])
+
+    html = '<div class="sideBarLink">'
+
+    for (let catagory in links) {
+
+        html += `<a herf="${links[catagory]}">* ${catagory}</a><br>`
+    }
+
+    html += '</div>'
+
+    return html
 }

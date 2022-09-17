@@ -16,3 +16,19 @@
 h1.sideBarHeading {
     font-size: large;
 }
+
+/* see how to make the div center*/
+.sideBarLink {
+    padding-left: 60px;
+    font-size: larger; 
+    font-weight:bold;
+    color: yellow;
+    /*text-align: center;*/
+}
+
+
+a.sideBarLink{
+    font-size: larger; 
+    font-weight:bold;
+    color: yellow;
+}
