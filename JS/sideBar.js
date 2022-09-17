@@ -82,7 +82,7 @@ function getLinksToOtherPages() {
 
     for (let catagory in links) {
 
-        html += `<a herf="${links[catagory]}">* ${catagory}</a><br>`
+        html += `<a href="${links[catagory]}">* ${catagory}</a><br>`
     }
 
     html += '</div>'
