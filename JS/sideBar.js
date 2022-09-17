@@ -78,14 +78,14 @@ function getLinksToOtherPages() {
 
     console.log(links[0])
 
-    html = '<div class="sideBarLink">'
+    html = '<ul class="sideBarLink">'
 
     for (let catagory in links) {
 
-        html += `<a href="${links[catagory]}">* ${catagory}</a><br>`
+        html += `<li><a href="${links[catagory]}">${catagory}</a></li>`
     }
 
-    html += '</div>'
+    html += '</ul>'
 
     return html
 }
