@@ -4,7 +4,7 @@
 }
 
 .sideBar {
-    width: 200px; 
+    width: 200px;
     height: 100%; 
     position: fixed; 
     z-index: 1;
@@ -23,13 +23,15 @@ h1 a, h2 a, h3 a {
 
 /* see how to make the div center*/
 .sideBarLink {
-    padding-left: 60px;
+    padding: 0;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     font-size: larger; 
-    font-weight:bold;
-    /*text-align: center;*/
+    font-weight: bold;
 }
 
-.sideBarLink a{
+ul, .sideBarLink a{
     color: yellow;
 }
 
