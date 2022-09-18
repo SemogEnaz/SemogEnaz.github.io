@@ -1,5 +1,6 @@
 .main {
-    margin-left: 250px;
+    position: relative;
+    left: 250px;
 }
 
 .sideBar {
@@ -10,11 +11,14 @@
     top: 0; 
     left: 0;
     background-color: green; 
-    overflow-x: hidden; 
 }
 
 h1.sideBarHeading {
     font-size: large;
+}
+
+h1 a, h2 a, h3 a {
+    color: white;
 }
 
 /* see how to make the div center*/
@@ -24,7 +28,6 @@ h1.sideBarHeading {
     font-weight:bold;
     /*text-align: center;*/
 }
-
 
 .sideBarLink a{
     color: yellow;

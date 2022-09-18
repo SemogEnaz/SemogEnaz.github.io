@@ -4,7 +4,9 @@ function sideBar() {
 
     let html = "";
 
-    html += '<h1 style="margin-bottom: 0;">Zanes Fitness Guide</h1>';
+    html += `<h1 style="margin-bottom: 0;">`
+    + `<a href="index.html">`
+    + `Zanes Fitness Guide</a></h1>`
 
     html += `<div style="padding: 10px; padding-top: 0;">`
 
