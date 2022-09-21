@@ -10,10 +10,8 @@ function sideBar() {
 
     html += `<div style="padding: 10px; padding-top: 0;">`
 
-    html += `<h2 style='text-align: center; text-decoration: underline'>Contents</h2>`
+    html += `<h2 class='sideBarTitle'>Contents</h2>`
 
-    // Adding the headings to the side bar to make it an effective page index.
-    // ADD LINKS LATER
     html += getHeadings();
 
     html += getLinksToOtherPages();
@@ -61,8 +59,8 @@ function getHeadings() {
         */
 
         html 
-        += '<' + headingTag + ' class="sideBarHeading">'
-        + '-' + headingText
+        += '<' + headingTag + ' class="sideBarPageIndex">'
+            + `<a href='#` + i + `'>- ` + headingText + `</a>`
         + '</' + headingTag + '>';
     }
 
@@ -78,9 +76,11 @@ function getLinksToOtherPages() {
         'Diet': 'diet.html'
     }
 
-    console.log(links[0])
+    html = ""
 
-    html = '<ul class="sideBarLink">'
+    html += `<h2 class="sideBarTitle";">Links</h2>`
+
+    html += '<ul class="sideBarLink">'
 
     for (let catagory in links) {
 

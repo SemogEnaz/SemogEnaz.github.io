@@ -22,7 +22,7 @@
 
 </head>
 
-<body onload="sideBar()">
+<body onload="sideBar(), loadContent()">
 
     <div id="topNav"></div>
 
@@ -30,24 +30,23 @@
 
     <div class="main">
 
-        <!-- This div is here incase we want to generate the entire intro using JS-->
-        <div id="intro">
+        <h1 name="">Welcome to Zanes fitness guide</h1>
+        <p>
+            Through reading this guide, you will come to know what I do for diet and traning.
+        </p>
 
-            <h1 name="">Welcome to Zanes fitness guide</h1>
-            <p>
-                Through reading this guide, you will come to know what I do for diet and traning.
-            </p>
+        <h2 name="heading" id="1">Pull</h2>
+        <h2 name="heading" id="2">Push</h2>
+        <h2 name="heading" id="3">Legs</h2>
+        <h2 name="heading" id="4">Diet</h2>
 
-            <h2 name="heading">Pull</h2>
-            <h2 name="heading">Push</h2>
-            <h2 name="heading">Legs</h2>
-            <h2 name="heading">Diet</h2>
-
-        </div>
+        <div id="main"></div>
 
     </div>
 
+<script src="JS/utils.js"></script>
 <script src="JS/sideBar.js"></script>
+<script src="JS/index.js"></script>
 
 </body>
 </html>
