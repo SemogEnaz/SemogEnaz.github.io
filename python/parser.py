@@ -31,14 +31,14 @@ class h(Tag):
 
         return text
 
-
 class p(Tag):
 
-    def __init__(self, tag_open, tag_close, placeholder):
-        super().__init__(tag_open, tag_close, placeholder)
+    def __init__(self, tag_open, tag_close):
+        super().__init__(tag_open, tag_close, None)
 
     def insert_tag(self, text):
-        index = index = text.find('\n', 0)
+
+        index = text.find('\n', 0)
         to_set_open_tag = True
 
         while index != -1 and index+1 != len(text):
@@ -62,6 +62,8 @@ class p(Tag):
 
             index = text.find('\n', index+1)
 
+        text = self.insert_br(text)
+
         return text
 
     def check_if_target(self, index: int, text) -> bool:
@@ -74,25 +76,75 @@ class p(Tag):
         
         return is_target
 
+    def insert_br(self, text):
+        # If a closing p tag is followed by an opening p tag after ' ' & '\n'
+        # then insert a <br> right before the opening p tag
+
+        # TODO: insert behind the closing p tag instead
+
+        index = 0
+
+        while index != -1:
+
+            index = text.find("</p>", index)
+
+            if index == -1:
+                continue
+
+            index += 4
+
+            while text[index+1] == ' ' or text[index+1] == '\n':
+                index += 1
+
+            if text[index+1:index+4] == '<p>':
+                text = text[:index+1] + "<br>" + text[index+1:]
+
+        return text
+
 def main():
     fileName = "../TextFiles/index.txt"
 
     h2 = h("<h2>", "</h2>", "~!")
     h3 = h("<h3>", "</h3>", '~@')
-    p_ = p("<p>", "</p>", "")
+    p_ = p("<p>", "</p>")
 
     text = readFromFile(fileName)
     
     text = h2.insert_tag(text)
     text = h3.insert_tag(text)
     text = p_.insert_tag(text)
+    
+    text = insert_heading_name_and_id(text)
 
     print(text)
 
-def readFromFile(fileName):
+def readFromFile(fileName) -> None:
     file = open(fileName, 'r')
 
     text = file.read()
+
+    return text
+
+def writeTofile(fileName, text, key_sub_str) -> None:
+    pass
+
+def insert_heading_name_and_id(text):
+
+    heading_count = 0
+
+    index = 0
+
+    while index != -1:
+        index = text.find("<h", index)
+
+        if index == -1:
+            continue
+        
+        index += 3
+
+        text = text[:index] + " name=\"heading\" id=\"" + str(heading_count) + "\" " + text[index:]
+
+        heading_count += 1
 
     return text
 
