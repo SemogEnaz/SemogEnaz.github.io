@@ -62,7 +62,7 @@ class p(Tag):
 
             index = text.find('\n', index+1)
 
-        text = self.insert_br(text)
+        # text = self.insert_br(text)
 
         return text
 
@@ -96,8 +96,10 @@ class p(Tag):
             while text[index+1] == ' ' or text[index+1] == '\n':
                 index += 1
 
-            if text[index+1:index+4] == '<p>':
-                text = text[:index+1] + "<br>" + text[index+1:]
+            index += 1
+
+            if text[index:index+3] == '<p>':
+                text = text[:index] + "<br>" + text[index:]
 
         return text
 
@@ -116,17 +118,51 @@ def main():
     
     text = insert_heading_name_and_id(text)
 
+    htmlFile = "../index.html"
+
+    key = "<div id=\"main\">"
+
+    insertHTML(htmlFile, text, key)
+
     print(text)
 
-def readFromFile(fileName) -> None:
+def readFromFile(fileName):
     file = open(fileName, 'r')
 
     text = file.read()
 
+    file.close()
+
     return text
 
-def writeTofile(fileName, text, key_sub_str) -> None:
-    pass
+def writeToFile(fileName, text) -> None:
+    file = open(fileName, "w")
+
+    file.write(text)
+    
+    file.close()
+
+def insertHTML(fileName, text, key) -> None:
+    html = readFromFile(fileName)
+
+    """
+    The key will always be '<div id="main">' so if the index
+    is valid, increment it by the length of the above div
+    """
+    index = html.find(key)
+
+    # TODO: Delete the html between the main id div
+    
+
+    if index == -1:
+        return
+
+    index += len(key)
+
+    # Adding the html we generated from the text file
+    html = html[:index] + text + html[index:]
+
+    writeToFile(fileName, html)
 
 def insert_heading_name_and_id(text):
 
