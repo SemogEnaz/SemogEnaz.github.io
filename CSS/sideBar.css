@@ -1,7 +1,3 @@
-.main {
-    left: 250px;
-}
-
 .sideBar {
     width: 200px;
     height: 100%; 
@@ -36,14 +32,15 @@ h1 a, h2 a, h3 a {
     color: white;
 }
 
-ul, .sideBarLink a{
+.sideBarLink a{
     color: yellow;
 }
 
-ul {
+ul.sideBarLink {
+    color: yellow;
     list-style: "* ";
 }
 
-li {
+ul.sideBarLink li {
     margin: 5px;
 }

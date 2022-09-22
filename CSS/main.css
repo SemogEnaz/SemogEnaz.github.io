@@ -1,8 +1,19 @@
 .main {
     max-width:fit-content;
-    margin-left: auto;
-    margin-right:auto;
     position:relative;
     left: 250px;
     right: 0px
 }
+
+.heading p {
+    margin-left: 25px;
+}
+
+.subheading h3 {
+    margin-left: 50px;
+}
+
+.subheading p {
+    margin-left: 75px;
+}
+
