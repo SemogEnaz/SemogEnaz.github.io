@@ -104,6 +104,55 @@ class p(Tag):
         return text
 
 def main():
+    key = "<div id=\"main\">"
+
+    htmlFile = "../index.html"
+
+    clean_file(htmlFile, key)
+
+    text = generate_html()
+
+    insertHTML(htmlFile, text, key)
+
+def clean_file(fileName, key) -> None:
+
+    #end_string = "\n" + (" " * indentation of key)
+
+    html = readFromFile(fileName)
+
+    index_start = html.find(key)
+    index = index_start
+    
+    if index == -1:
+        return
+
+    space_counter = 0
+
+    while True:
+        if index > 0:
+
+            if html[index-1] == '\n':
+                break
+            elif html[index-1] == " ":
+                space_counter += 1
+                index -= 1
+            else:
+                print("ERROR, erronious use of parser.\nKey must be placed after newline!!!")
+                return
+
+    end_div = '\n' + " " * space_counter + "</div>"
+
+    index_end = html.find(end_div, index_start)
+
+    if index_end == -1:
+        return
+
+    # Removing html in main div
+    html = html[:index_start + len(key)] + html[index_end:]
+
+    writeToFile(fileName, html)
+
+def generate_html():
     fileName = "../TextFiles/index.txt"
 
     h2 = h("<h2>", "</h2>", "~!")
@@ -118,13 +167,7 @@ def main():
     
     text = insert_heading_name_and_id(text)
 
-    htmlFile = "../index.html"
-
-    key = "<div id=\"main\">"
-
-    insertHTML(htmlFile, text, key)
-
-    print(text)
+    return text
 
 def readFromFile(fileName):
     file = open(fileName, 'r')
@@ -145,15 +188,8 @@ def writeToFile(fileName, text) -> None:
 def insertHTML(fileName, text, key) -> None:
     html = readFromFile(fileName)
 
-    """
-    The key will always be '<div id="main">' so if the index
-    is valid, increment it by the length of the above div
-    """
     index = html.find(key)
-
-    # TODO: Delete the html between the main id div
     
-
     if index == -1:
         return
 
