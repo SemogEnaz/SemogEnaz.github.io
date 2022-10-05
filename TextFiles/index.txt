@@ -6,13 +6,37 @@ Through reading this guide, you will come to know what I do for diet and trainin
     See the below for details on each workout.
     We start on Monday with Push, so the week would look like:
 
-           Monday: Push
-          Tuesday: Pull
+         ~:Monday: Pull
+          Tuesday: Push
         Wednesday: Legs
-         Thursday: Push
+         Thursday: Rest
            Friday: Pull
+         Saturday: Push
+           Sunday: Legs
+
+           Monday: Rest
+          Tuesday: Pull
+        Wednesday: Push
+         Thursday: Legs
+           Friday: Rest
+         Saturday: Pull
+           Sunday: Push
+
+           Monday: Legs
+          Tuesday: Rest
+        Wednesday: Pull
+         Thursday: Push
+           Friday: Legs
+         Saturday: Rest
+           Sunday: Pull
+
+           Monday: Push
+          Tuesday: Legs
+        Wednesday: Rest
+         Thursday: Pull
+           Friday: Push
          Saturday: Legs
-           Sunday: Rest
+           Sunday: Rest~:
 
     ~@Push
         Chest, Shoulders, Triceps
@@ -21,11 +45,12 @@ Through reading this guide, you will come to know what I do for diet and trainin
         Back, Biceps, Rear Delts
 
     ~@Legs
-        Quads, Hamstrings, Glutes, Calves, Abs
+        Quads, Hamstrings, Glut's, Calves, Abs
 
-    The main benifit of PPL is that it groups related muscles together in the
-    same workout. This is good becuase I idealy want to train a muscle twice
+    The main benefit of PPL is that it groups related muscles together in the
+    same workout. This is good because I ideally want to train a muscle twice
     a week, or at least to the greatest degree that that is possible.
 
 ~!Diet
-
+    Something I have been struggling with for like going on 2 years. I finally have 3
+    dishes that I can eat on a somewhat consistent basis
