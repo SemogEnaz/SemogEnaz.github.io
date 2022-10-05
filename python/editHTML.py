@@ -56,7 +56,7 @@ def generate_html():
     
     text = insert_heading_name_and_id(text)
 
-    text = insert_sub_heading(text)
+    text = insert_sub_heading(text, 0, 2)
 
     return text
 
@@ -95,7 +95,7 @@ def insert_heading_name_and_id(text):
 
     return text
 
-def insert_sub_heading(text, start_index):
+def insert_sub_heading(text, start_index: int, cur_heading_num: int):
     # if encounter heading with the same number, do the open closing div thing
     # otherwise recursive call the function recursively.
 
@@ -103,19 +103,33 @@ def insert_sub_heading(text, start_index):
     closing_div = '</div>'
 
     insertion_count = 0
-    while True:
-        start_index = text.find("<h", index)
 
-        if start_index == -1:
+    index = start_index
+
+    while True:
+        index = text.find("<h", index)
+
+        if index == -1:
             text += closing_div
-            break
+            return text
+
+        heading_num = int(text[index+2])
+
+        if heading_num > cur_heading_num:
+            text_and_index = insert_sub_heading(text, index, heading_num)
+            text = text_and_index[0]
+            index = text_and_index[1]
+        elif heading_num < cur_heading_num:
+            text = text[:index] + closing_div + text[index:] 
+            index += len(closing_div)
+            return [text, index]
 
         if (insertion_count == 0):
-            text = text[:start_index] + opening_div + text[start_index:]
-            start_index += len(opening_div) + 4
+            text = text[:index] + opening_div + text[index:]
+            index += len(opening_div) + 4
         else:
-            text = text[:start_index] + closing_div + opening_div + text[start_index:] 
-            start_index += len(closing_div) + len(opening_div) + 4
+            text = text[:index] + closing_div + opening_div + text[index:] 
+            index += len(closing_div) + len(opening_div) + 4
 
         insertion_count += 1
 
