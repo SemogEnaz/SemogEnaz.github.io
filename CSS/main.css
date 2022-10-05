@@ -5,15 +5,12 @@
     right: 0px
 }
 
-.heading p {
+.heading, .heading p {
     margin-left: 25px;
 }
 
-.subheading h3 {
-    margin-left: 50px;
+.heading .heading, {
+    margin-left: 37.5px;
 }
 
-.subheading p {
-    margin-left: 75px;
-}
 
