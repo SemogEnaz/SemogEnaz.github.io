@@ -52,16 +52,14 @@ function getHeadings() {
         headingText = currentHeading.innerText;
         headingTag = currentHeading.localName;
 
-        /*
-        // the h1 is reserved for the title of the welcome message
-        if (currentHeading.localName == 'h1')
-            continue;
-        */
+        if (headingTag == 'p')
+            headingTag = 'h2'
 
-        html 
+        html
         += '<' + headingTag + ' class="sideBarPageIndex">'
             + `<a href='#` + i + `'>- ` + headingText + `</a>`
         + '</' + headingTag + '>';
+    
     }
 
     return html;
