@@ -1,0 +1,39 @@
+.slides {
+    border: 5px solid blue;
+}
+
+.slide {
+    width: 500px; 
+    height: fit-content; 
+    border: 5px solid red; 
+    margin: 10px;
+}
+
+.slide .image {
+    width: fit-content; 
+    height: 200px;
+    border: 5px solid green; 
+    overflow: hidden;
+}
+
+.slide .summary {
+    width: 100%; 
+    height: fit-content;
+    margin: auto;
+    border: 5px solid yellow;
+}
+
+.summary .title {
+    text-align: center;
+}
+
+.summary .stats {
+    margin: 10px;
+}
+
+.stats .low {
+    color: green;
+    font-weight: bold;
+    margin-left: 11%;
+    display: inline;
+}
