@@ -12,13 +12,3 @@
 .heading .heading {
     margin-left: 37.5px;
 }
-
-.weekRoutiene {
-    display: table;
-    width: 100%;
-    border: 5px solid red;
-}
-
-.weekRoutiene ul{
-    display: table-cell;
-}
