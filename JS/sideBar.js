@@ -10,8 +10,6 @@ function sideBar() {
 
     html += `<div style="padding: 10px; padding-top: 0;">`
 
-    html += `<h2 class='sideBarTitle'>Contents</h2>`
-
     html += getHeadings();
 
     html += getLinksToOtherPages();
@@ -45,6 +43,8 @@ function getHeadings() {
     let headingText = "";
     let headingTag = "";
 
+    html += `<h2 class='sideBarTitle'>Contents</h2>`
+
     for (let i = 0; i < headings.length; i++) {
 
         currentHeading = headings[i]
@@ -52,8 +52,15 @@ function getHeadings() {
         headingText = currentHeading.innerText;
         headingTag = currentHeading.localName;
 
+        /*
+        // Puts titles of slides into sidebar
         if (headingTag == 'p')
-            headingTag = 'h2'
+            headingTag = 'h3';
+        */
+        
+        // Skips the contents in the sidebar if making the dietpage
+        if (headingTag = 'p')
+            return "<h3>put searchBar here?</h3>";
 
         html
         += '<' + headingTag + ' class="sideBarPageIndex">'
