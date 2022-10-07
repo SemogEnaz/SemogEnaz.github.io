@@ -1,18 +1,13 @@
-.slides {
-    border: 5px solid blue;
-}
-
 .slide {
     width: 500px; 
     height: fit-content; 
-    border: 5px solid red; 
+    border: 5px solid white; 
     margin: 10px;
 }
 
 .slide .image {
     width: fit-content; 
     height: 200px;
-    border: 5px solid green; 
     overflow: hidden;
 }
 
@@ -20,7 +15,6 @@
     width: 100%; 
     height: fit-content;
     margin: auto;
-    border: 5px solid yellow;
 }
 
 .summary .title {
@@ -31,9 +25,20 @@
     margin: 10px;
 }
 
+.stats .low , .stats .medium, .stats .high{
+    font-weight: bold;
+    margin-left: 9%;
+    display: inline;
+}
+
 .stats .low {
     color: green;
-    font-weight: bold;
-    margin-left: 11%;
-    display: inline;
+}
+
+.stats .medium {
+    color: yellow;
+}
+
+.stats .high {
+    color: red;
 }

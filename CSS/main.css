@@ -20,7 +20,7 @@
 
 .main a:hover {
     text-decoration: none;
-    color: red;
+    font-weight: bolder;
 }
 
 
